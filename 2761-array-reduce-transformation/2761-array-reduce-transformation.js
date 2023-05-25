@@ -5,5 +5,11 @@
  * @return {number}
  */
 var reduce = function(nums, fn, init) {
-    return nums.reduce(fn,init)
+    let acc=init;
+    let i=0;
+    while(i<nums.length){
+        acc=fn(acc,nums[i]);
+        i++;
+    }
+    return acc;
 };
