@@ -2,6 +2,18 @@
  * @param {Function} fn
  * @return {Function}
  */
+// var once = function(fn) {
+//     let call=false;
+//     return function(...args){
+//         if(call){
+//             return undefined;
+//         }
+//         call=true;
+//             const a=fn(...args)
+//             return a;  
+//     }
+// };
+
 var once = function(fn) {
     let call=false;
     return function(...args){
@@ -9,7 +21,7 @@ var once = function(fn) {
             return undefined;
         }
         call=true;
-            const a=fn(...args)
+            const a=fn.apply(this,args)
             return a;  
     }
 };
