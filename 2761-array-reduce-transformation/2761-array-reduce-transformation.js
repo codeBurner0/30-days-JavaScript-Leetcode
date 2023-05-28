@@ -6,10 +6,9 @@
  */
 var reduce = function(nums, fn, init) {
     let acc=init;
-    let i=0;
-    while(i<nums.length){
-        acc=fn(acc,nums[i]);
-        i++;
+    for(let val in nums){
+        acc=fn(acc,nums[val]);
     }
     return acc;
+    
 };
