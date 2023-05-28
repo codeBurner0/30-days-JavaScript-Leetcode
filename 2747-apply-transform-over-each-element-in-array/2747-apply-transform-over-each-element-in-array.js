@@ -3,11 +3,15 @@
  * @param {Function} fn
  * @return {number[]}
  */
-var map = function(arr, fn) {
-    let i=0;
-    while(i<arr.length){
-        arr[i]=fn(arr[i],i);
-        i++;
-    }
-    return arr;
-};
+// var map = function(arr, fn) {
+//     let i=0;
+//     while(i<arr.length){
+//         arr[i]=fn(arr[i],i);
+//         i++;
+//     }
+//     return arr;
+// };
+
+var map=function(arr,fn){
+    return arr.map(fn)
+}
