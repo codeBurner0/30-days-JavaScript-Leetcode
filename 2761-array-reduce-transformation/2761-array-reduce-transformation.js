@@ -6,8 +6,8 @@
  */
 var reduce = function(nums, fn, init) {
     let acc=init;
-    for(let val in nums){
-        acc=fn(acc,nums[val]);
+    for(let val of nums){
+        acc=fn(acc,val);
     }
     return acc;
     
