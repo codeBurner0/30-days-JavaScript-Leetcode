@@ -2,20 +2,18 @@
  * @param {Function[]} functions
  * @return {Function}
  */
-var compose = function(arr) {
+var compose = function(functions) {
 	return function(x) {
-        
-        let i=arr.length-1;;
+        let i=functions.length-1;
+        let res=x;
         while(i>=0){
-           x=arr[i](x);
-           i--;
+            res=functions[i](res);
+            i--;
         }
-        return x;
+        return res;
     }
 };
 
-
-const a=()=>{}
 /**
  * const fn = compose([x => x + 1, x => 2 * x])
  * fn(4) // 9
