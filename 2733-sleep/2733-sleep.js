@@ -1,12 +1,18 @@
 /**
  * @param {number} millis
  */
+// async function sleep(millis) {
+//     function callback(res,rej){
+//         return setTimeout(res,millis)
+//     }
+//     return new Promise(callback)
+// }
 async function sleep(millis) {
-    function callback(res,rej){
-        return setTimeout(res,millis)
-    }
-    return new Promise(callback)
+    return await new Promise((res,rej)=>{
+        setTimeout(res,millis)
+    })
 }
+
 
 /** 
  * let t = Date.now()
