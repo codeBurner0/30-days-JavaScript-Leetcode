@@ -5,13 +5,14 @@
 var curry = function(fn) {
     let nums=[];
     return function curried(...args) {
-        nums=[...nums,...args];
-        let res=[];
+        nums=[...nums,...args]
+        
         if(fn.length===nums.length){
-            res=nums;
-            nums=[];
-            return fn(...res)
-        }else{
+            let res=nums;
+            nums=[]
+            return fn(...res);
+        }
+        else{
             return curried;
         }
     };
