@@ -4,24 +4,20 @@
  * @return {Function}
  */
 var timeLimit = function(fn, t) {
-  return async function(...args) {
-    return new Promise((delayresolve, reject) => {
-      const timeoutId = setTimeout(() => {
-        clearTimeout(timeoutId);
-        reject("Time Limit Exceeded");
-      }, t);
-
-      fn(...args)
-        .then((result) => {
-          clearTimeout(timeoutId);
-          delayresolve(result);
+	return async function(...args) {
+        return new Promise((res,rej)=>{
+            const inter=setTimeout(()=>rej("Time Limit Exceeded"),t);
+            const data=fn(...args)
+            data.then((resp)=>{
+                res(resp)
+            }).catch((err)=>{
+                rej(err)
+            }).finally(()=>{
+                clearTimeout(inter)
+            })
+            
         })
-        .catch((error) => {
-          clearTimeout(timeoutId);
-          reject(error);
-        });
-    });
-  };
+    }
 };
 
 /**
